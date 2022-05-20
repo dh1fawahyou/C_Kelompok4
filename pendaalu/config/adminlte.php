@@ -320,8 +320,18 @@ return [
     //     ],
     // ],
             [
-                'text' => 'Pendataan Alumni',
-                'url'  => 'admin/settings',
+                'text' => 'Dashboard',
+                'url'  => '/home',
+                'icon' => 'fas fa-fw fa-lock',
+            ],
+            [
+                'text' => 'Data Alumni',
+                'url'  => '/Dataalumni',
+                'icon' => 'fas fa-fw fa-lock',
+            ],
+            [
+                'text' => 'Data Admin',
+                'url'  => '/Dataadmin',
                 'icon' => 'fas fa-fw fa-lock',
             ],
         ],

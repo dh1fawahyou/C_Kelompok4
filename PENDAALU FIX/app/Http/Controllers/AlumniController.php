@@ -15,7 +15,9 @@ class AlumniController extends Controller
     {
         $alumni = Alumni::all();
         return view('alumni.index', [
-            'alumni' => $alumni]);
+            'alumni' => $alumni,
+            'menu' => 'dataalumni'
+        ]);
     }
 
     /**
@@ -25,7 +27,9 @@ class AlumniController extends Controller
      */
     public function create()
     {
-        return view('alumni.create');
+        return view('alumni.create', [
+            'menu' => 'dataalumni'
+        ]);
     }
 
     /**
@@ -37,10 +41,10 @@ class AlumniController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'no_induk' => 'required',
+            'no_induk' => ['required', 'unique:alumni'],
             'nama' => 'required',
-            'no_ijazah' => 'required',
-            'no_skhun' => 'required',
+            'no_ijazah' => ['required', 'unique:alumni'],
+            'no_skhun' => ['required', 'unique:alumni'],
             'tahun_lulus' => 'required',
             'tgl_pengambilan' => 'required',
             'vcd_foto' => 'required',
@@ -52,7 +56,7 @@ class AlumniController extends Controller
         ]);
         $alumni = Alumni::create($array);
         return redirect()->route('alumni.index')
-            ->with('success_message', 'Data alumni baru telah berhasil disimpan.');
+            ->with('save_message', 'Data alumni baru telah berhasil disimpan.');
     }
 
     /**
@@ -78,7 +82,8 @@ class AlumniController extends Controller
         if (!$alumni) return redirect()->route('alumni.index')
             ->with('error_message', 'Alumni dengan id'.$id.' tidak ditemukan');
             return view('alumni.edit', [
-                'alumni' => $alumni
+                'alumni' => $alumni,
+                'menu' => 'dataalumni'
             ]);
     }
 
@@ -130,6 +135,6 @@ class AlumniController extends Controller
         $alumni = Alumni::find($id);
         if ($alumni) $alumni->delete();
         return redirect()->route('alumni.index')
-            ->with('success_message', 'Berhasil menghapus data.');
+            ->with('Delete', 'Berhasil menghapus data.');
     }
 }

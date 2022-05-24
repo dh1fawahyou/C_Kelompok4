@@ -4,6 +4,33 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css"/>
 <section class="section">
+    @if ($message = Session::get('Delete'))
+    <script>
+        Swal.fire(
+      'Deleted!',
+      '{{ $message }}',
+      'success'
+    )
+    </script>
+	@endif
+    @if ($message = Session::get('save_message'))
+    <script>
+        Swal.fire(
+      'Tersimpan!',
+      '{{ $message }}',
+      'success'
+    )
+    </script>
+	@endif
+    @if ($message = Session::get('success_message'))
+    <script>
+        Swal.fire(
+      'Tersimpan!',
+      '{{ $message }}',
+      'success'
+    )
+    </script>
+	@endif
     <div class="section-header">
       <h1>Data Alumni</h1>
     </div>
@@ -53,7 +80,7 @@
                                     <td>{{$alumni->nama_sekolah_lanjutan}}</td>
                                     <td>@if($alumni->status==1)
                                         Sudah Mengambil
-                                      @elseif($alumni->status==2)
+                                      @elseif($alumni->status==0)
                                         Belum Mengambil
                                       @endif</td>
                                     <td>
@@ -88,6 +115,7 @@
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.colVis.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <form action="" id="delete-form" method="post">
     @method('delete')
@@ -102,10 +130,10 @@
                         "orderable": false
                         },
                         {
-                          "targets":[0, 6, 9],
+                          "targets":[0, 7, 10],
                           "className": "text-center"
                         },
-                        // { "width": "50%", "targets": 0 },
+                        { "width": "130px", "targets": 10 },
                         // { "width": "75px", "targets": 1 },
                         // { "width": "65px", "targets": 3 },
                         // { "width": "50px", "targets": 4 },
@@ -160,24 +188,24 @@
 
     function notificationBeforeDelete(event, el){
             event.preventDefault();
-            if (confirm('Apakah Anda Yakin Akan Menghapus Data?')) {
-                $("#delete-form").attr('action', $(el).attr('href'));
-                $("#delete-form").submit();
-            }
-            // Swal.fire({
-            //     title: 'Are you sure?',
-            //     text: "You won't be able to revert this!",
-            //     icon: 'warning',
-            //     showCancelButton: true,
-            //     confirmButtonColor: '#3085d6',
-            //     cancelButtonColor: '#d33',
-            //     confirmButtonText: 'Yes, delete it!'
-            //     }).then((result) => {
-            //     if (result.isConfirmed) {
-            //         $("#delete-form").attr('action', $(el).attr('href'));
-            //             $("#delete-form").submit();
-            //     }
-            //     })
+            // if (confirm('Apakah Anda Yakin Akan Menghapus Data?')) {
+            //     $("#delete-form").attr('action', $(el).attr('href'));
+            //     $("#delete-form").submit();
+            // }
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    $("#delete-form").attr('action', $(el).attr('href'));
+                        $("#delete-form").submit();
+                }
+                })
         }
 </script>
 @endsection

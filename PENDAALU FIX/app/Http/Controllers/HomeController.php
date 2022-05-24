@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumni;
+use App\Models\User;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $mengambil = Alumni::where('status', 1)->count();
+        $belum = Alumni::where('status', 0)->count();
+        $totalalumni =Alumni::all()->count();
+        $totaladmin = User::all()->count();
+        return view('home', [
+            'menu' => 'home',
+            'totaladmin' => $totaladmin,
+            'mengambil' => $mengambil,
+            'belum' => $belum,
+            'totalalumni' => $totalalumni
+        ]);
     }
 }

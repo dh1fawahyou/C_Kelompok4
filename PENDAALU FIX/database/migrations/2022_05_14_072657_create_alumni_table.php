@@ -15,10 +15,10 @@ class CreateAlumniTable extends Migration
     {
         Schema::create('alumni', function (Blueprint $table) {
             $table->id();
-            $table->integer('no_induk');
+            $table->integer('no_induk')->unique();
             $table->string('nama');
-            $table->integer('no_ijazah');
-            $table->string('no_skhun');
+            $table->integer('no_ijazah')->unique();
+            $table->string('no_skhun')->unique();
             $table->year('tahun_lulus');
             $table->date('tgl_pengambilan');
             $table->boolean('vcd_foto');

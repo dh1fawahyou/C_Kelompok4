@@ -97,10 +97,10 @@ class AlumniController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'no_induk' => 'required',
+            'no_induk' => ['required', 'unique:alumni'],
             'nama' => 'required',
-            'no_ijazah' => 'required',
-            'no_skhun' => 'required',
+            'no_ijazah' => ['required', 'unique:alumni'],
+            'no_skhun' => ['required', 'unique:alumni'],
             'tahun_lulus' => 'required',
             'tgl_pengambilan' => 'required',
             'vcd_foto' => 'required',

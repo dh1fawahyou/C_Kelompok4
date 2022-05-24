@@ -27,5 +27,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('alumni', \App\Http\Controllers\AlumniController::class)
     ->middleware('auth');
 
-Route::resource('admin', \App\Http\Controllers\UserController::class)
+Route::resource('users', \App\Http\Controllers\UserController::class)
     ->middleware('auth');

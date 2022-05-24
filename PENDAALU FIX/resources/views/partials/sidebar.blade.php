@@ -13,7 +13,6 @@
             $dataadmin = '';
         @endphp
         @break
-        
     @case('dataadmin')        
         @php
             $home = '';
@@ -36,7 +35,7 @@
           <li class="menu-header">Menu Navigation</li>
           <li class="nav-link {{ $home }}"><a class="nav-link" href="/home"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
           <li class="nav-link {{ $dataalumni }}"><a class="nav-link" href="/alumni"><i class="fas fa-folder-open"></i> <span>Data Alumni</span></a></li>
-          <li class="nav-link {{ $dataadmin }}"><a class="nav-link" href="/admin"><i class="fas fa-user-cog"></i> <span>Data Admin</span></a></li>
+          <li class="nav-link {{ $dataadmin }}"><a class="nav-link" href="/users"><i class="fas fa-user-cog"></i> <span>Data Admin</span></a></li>
 
           
           {{-- <li class="nav-item">

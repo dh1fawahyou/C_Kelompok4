@@ -648,7 +648,7 @@ select.form-control:not([size]):not([multiple]) {
     .card .card-header h4 {
       font-size: 16px;
       line-height: 28px;
-      color: #6777ef;
+      color: #4c9f70;
       padding-right: 10px;
       margin-bottom: 0; }
       .card .card-header h4 + .card-header-action,
@@ -722,7 +722,7 @@ select.form-control:not([size]):not([multiple]) {
     background-repeat: no-repeat;
     background-position: center; }
   .card.card-primary {
-    border-top: 2px solid #6777ef; }
+    border-top: 2px solid #4c9f70; }
   .card.card-secondary {
     border-top: 2px solid #cdd3d8; }
   .card.card-success {

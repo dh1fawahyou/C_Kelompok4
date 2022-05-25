@@ -31,6 +31,15 @@
     )
     </script>
 	@endif
+    @if ($message = Session::get('pesan_error'))
+    <script>
+        Swal.fire(
+      'Error!',
+      '{{ $message }}',
+      '-'
+    )
+    </script>
+	@endif
     <div class="section-header">
       <h1>Data Admin</h1>
     </div>

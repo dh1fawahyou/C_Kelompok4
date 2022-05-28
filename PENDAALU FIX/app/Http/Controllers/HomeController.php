@@ -30,12 +30,14 @@ class HomeController extends Controller
         $belum = Alumni::where('status', 0)->count();
         $totalalumni =Alumni::all()->count();
         $totaladmin = User::all()->count();
+        $tahunalumni = Alumni::select('tahun_lulus')->get();
         return view('home', [
             'menu' => 'home',
             'totaladmin' => $totaladmin,
             'mengambil' => $mengambil,
             'belum' => $belum,
-            'totalalumni' => $totalalumni
+            'totalalumni' => $totalalumni,
+            'tahunalumni' => $tahunalumni,
         ]);
     }
 }

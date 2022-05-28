@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
-<html lang="en" style="background-image: url('lanpages/images/mts.png');">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Login &mdash;</title>
+  <title>Login</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -20,27 +20,21 @@
 
 <body>
   <div id="app">
-    <section class="section" style="background-image: url('lanpages/images/mts.png');">
-      <div class="container py-5">
-        <div class="row">
-          <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-            <div class="login-brand">
-              <img src="{{ asset('assets/img/mtslogo.png') }}" alt="logo" width="100" class="shadow-light rounded-circle">
-            </div>
+    <section class="section">
+      <div class="d-flex flex-wrap align-items-stretch">
+        <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
+          <div class="p-4 m-3">
+            <img src="{{ asset('assets/img/mtslogo.png') }}" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2">
+            <h4 class="text-dark font-weight-normal">Login <span class="font-weight-bold">Pendaalu</span></h4>
+            <p class="text-muted">Silahkan Login terlebih dahulu untuk memulai.</p>
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
 
-            <div class="card card-primary">
-              <div class="card-header"><h4>{{ __('Login') }}</h4></div>
+                @if (session('error'))
+                <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
 
-              <div class="card-body">
-                <form method="POST" action="{{ route('login') }}">
-                
-                    @csrf
-
-                    @if (session('error'))
-                    <div class="alert alert-danger">{{ session('error') }}</div>
-                    @endif
-
-                  <div class="form-group">
+              <div class="form-group">
                     <label for="username">{{ __('Username/Email') }}</label>
                     <input id="username" type="text" class="form-control  @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" tabindex="1" required autocomplete="username" autofocus>
                     @error('username')
@@ -48,9 +42,9 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                  </div>
+                </div>
 
-                  <div class="form-group">
+                <div class="form-group">
                     <div class="d-block">
                     	<label for="password" class="control-label">{{ __('Password') }}</label>
                     </div>
@@ -69,13 +63,36 @@
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-success btn-block" tabindex="4">
-                        {{ __('Login') }}
-                    </button>
-                  </div>
-                </form>
+              <div class="form-group text-right">
+                @if (Route::has('password.request'))
+                    <a class="float-left mt-3" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
+                @endif
+                <button type="submit" class="btn btn-success btn-icon icon-right" tabindex="4">
+                    {{ __('Login') }}
+                </button>
               </div>
+            </form>
+
+            <div class="text-center mt-5 text-small">
+              Copyright &copy; Pendaalu. Made with 💙 by Stisla
+              <div class="mt-2">
+                <a href="#">Privacy Policy</a>
+                <div class="bullet"></div>
+                <a href="#">Terms of Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom" data-background="{{ asset('assets/img/gedung.png') }}">
+          <div class="absolute-bottom-left index-2">
+            <div class="text-light p-5 pb-2">
+              <div class="mb-5 pb-3">
+                <h1 class="mb-2 display-4 font-weight-bold">Selamat Datang</h1>
+                <h5 class="font-weight-normal text-muted-transparent">Bondowoso, Indonesia</h5>
+              </div>
+              Photo by <a class="text-light bb" target="_blank" href="https://xxmaps.com/ID/695804/mts-at-taqwa-bondowoso">XXmaps.com</a>
             </div>
           </div>
         </div>

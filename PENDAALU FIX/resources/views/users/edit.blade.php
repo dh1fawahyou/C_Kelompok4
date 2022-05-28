@@ -60,9 +60,23 @@
                                                     @enderror
                                                 </div>
                                             </div>
+
+                                            <div class="row mb-3">
+                                                <label for="password_lama" class="col-md-4 col-form-label text-md-end">Password Lama</label>
+                    
+                                                <div class="col-md-6">
+                                                    <input id="password_lama" type="password" class="form-control @error('password') is-invalid @enderror" name="password_lama" value="{{$user->password ?? old('password') }}" required autocomplete="new-password">
+                    
+                                                    @error('password_lama')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
                     
                                             <div class="row mb-3">
-                                                <label for="password" class="col-md-4 col-form-label text-md-end">Password</label>
+                                                <label for="password" class="col-md-4 col-form-label text-md-end">Password Baru</label>
                     
                                                 <div class="col-md-6">
                                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{$user->password ?? old('password') }}" required autocomplete="new-password">

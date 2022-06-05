@@ -141,21 +141,21 @@
         buttons: [
             { extend: 'pdf', 
               text: '<i class="fa fa-file-pdf text-danger"></i> PDF', 
-              title: '',
+              title: 'Daftar Admin MTs At - Taqwa Bondowoso',
               exportOptions: { columns: ':visible'},
-              messageTop: 'Daftar Admin',
+              messageTop: '',
               orientation:'portrait',
               pageSize:'A4'
             },
             { extend: 'excel', text: '<i class="fa fa-file-excel text-success" > </i> EXCEL', 
-            title: '',
+            title: 'Daftar Admin MTs At - Taqwa Bondowoso',
             exportOptions: { columns: ':visible'},
-            messageTop: 'Daftar Admin'
+            messageTop: ''
             },
             { extend: 'print', text: '<i class="fa fa-print text-info" > </i> PRINT', 
             title: '',
             exportOptions: { columns: ':visible'},
-            messageTop: 'title',
+            messageTop: '',
             },
             { extend: 'colvis', text:'<i class="fa fa-table" > </i> Columns',   postfixButtons: [ 'colvisRestore' ] },
             // {

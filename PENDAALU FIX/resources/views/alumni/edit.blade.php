@@ -98,6 +98,16 @@
     </div>
     </div>
   </section>
-
+  
+  <script src="https://lab.iamrohit.in/demo/yearpicker/yearpicker.js"></script>
+  <script>
+      
+      // $("#exampleInputTahunMasuk" ).datepicker({dateFormat: 'yy'});
+      $("#exampleInputTahunLulus" ).yearpicker(
+          startYear: 2020,
+            endYear:2030,
+            year:2022
+      );
+  </script>
 
 @endsection

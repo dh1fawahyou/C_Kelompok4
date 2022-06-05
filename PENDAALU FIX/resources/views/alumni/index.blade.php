@@ -72,9 +72,9 @@
                                     <td>{{$alumni->tahun_lulus}}</td>
                                     <td>{{$alumni->tgl_pengambilan}}</td>
                                     <td>@if($alumni->vcd_foto==1)
-                                          <button class="btn btn-sm btn-info"><i class="fas fa-check"></i></button>
+                                          <button class="btn btn-sm btn-info">Sudah</button>
                                         @elseif($alumni->vcd_foto==0)
-                                        <button class="btn btn-sm btn-warning"><i class="fas fa-times"></i></button>
+                                        <button class="btn btn-sm btn-warning">Belum</i></button>
                                         @endif
                                     </td>
                                     <td>{{$alumni->nama_sekolah_lanjutan}}</td>
@@ -154,21 +154,21 @@
         buttons: [
             { extend: 'pdf', 
               text: '<i class="fa fa-file-pdf text-danger"></i> PDF', 
-              title: '',
+              title: 'Daftar Alumni MTs At - Taqwa Bondowoso',
               exportOptions: { columns: ':visible'},
-              messageTop: 'Daftar Alumni',
+              messageTop: '',
               orientation:'portrait',
               pageSize:'A4'
             },
             { extend: 'excel', text: '<i class="fa fa-file-excel text-success" > </i> EXCEL', 
-            title: '',
+            title: 'Daftar Alumni MTs At - Taqwa Bondowoso',
             exportOptions: { columns: ':visible'},
-            messageTop: 'Daftar Alumni'
+            messageTop: ''
             },
             { extend: 'print', text: '<i class="fa fa-print text-info" > </i> PRINT', 
-            title: '',
+            title: 'Daftar Alumni MTs At - Taqwa Bondowoso',
             exportOptions: { columns: ':visible'},
-            messageTop: 'title',
+            messageTop: '',
             },
             { extend: 'colvis', text:'<i class="fa fa-table" > </i> Columns',   postfixButtons: [ 'colvisRestore' ] },
             // {

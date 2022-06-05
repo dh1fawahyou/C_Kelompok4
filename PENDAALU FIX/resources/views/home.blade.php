@@ -70,12 +70,16 @@
 
     <div class="card">
       <div class="card-header">
-        <h4>Statistics</h4>
+        <h4>Statistics Alumni per-Tahun</h4>
+
       </div>
       <div class="card-body"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
         <canvas id="myChart" height="565" style="display: block; height: 452px; width: 746px;" width="932" class="chartjs-render-monitor"></canvas>
       </div>
     </div>
+
+   
+    </ul>
   </section>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -85,10 +89,10 @@
     const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: {{ $tahunlulus }},
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                data: {{ $total }},
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -109,6 +113,12 @@
             }]
         },
         options: {
+
+            plugins: {
+              legend: {
+                  display: false,
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true
